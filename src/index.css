@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Ensure the app can stretch to the full viewport.
+   (The default Vite template sets body to flex+center, which makes layouts shrink to content.) */
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
