@@ -1,37 +1,87 @@
-# React + Vite
+# React + Vite Frontend
+
+A minimal React frontend project built with Vite.
+
+## Requirements
+
+* Node.js >= 18
+* npm / pnpm / yarn
+
+## Installation
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## Development
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+After the server starts, open the URL shown in the terminal (usually `http://localhost:5173`).
 
 ## Environment Variables
 
-- Konfigurasi API diset lewat `.env`.
-- Saat development (`npm run dev`), disarankan pakai Vite proxy supaya tidak kena CORS.
+API configuration is managed through the `.env` file.
 
-Contoh:
+### Development (Using Vite Proxy – Recommended)
 
-- Dev (tanpa CORS):
-    - `VITE_API_BASE_URL=`
-    - `VITE_PROXY_TARGET=http://localhost:3000`
+Using the Vite proxy allows API requests to avoid CORS issues during development.
 
-- Tanpa proxy (butuh CORS di backend jika beda origin):
-    - `VITE_API_BASE_URL=http://localhost:3000`
+Example configuration:
 
-Catatan: setelah mengubah `.env`, restart `npm run dev` / rebuild.
+```
+VITE_API_BASE_URL=
+VITE_PROXY_TARGET=http://localhost:3000
+```
+
+### Without Proxy
+
+If you prefer not to use the proxy:
+
+```
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+In this case, the backend must allow CORS if the frontend and backend run on different origins.
+
+**Note:**
+After modifying `.env`, restart the development server.
+
+```
+npm run dev
+```
+
+or rebuild the project.
 
 ## CORS Notes
 
-- Jika melihat request login “kepanggil 2x”, biasanya itu `OPTIONS` (preflight) + request utama.
-- Dengan Vite proxy (same-origin), preflight & error CORS ini hilang.
+If you see login requests triggered twice in the browser network tab, this is usually caused by:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* `OPTIONS` request (CORS preflight)
+* followed by the actual request
 
-Currently, two official plugins are available:
+When using the Vite proxy (same-origin request), the preflight request and CORS errors usually do not occur.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Build
 
-## React Compiler
+To create a production build:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+The build output will be generated in the `dist` folder.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Preview Build
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
