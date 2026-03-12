@@ -104,10 +104,10 @@ function LoginPage() {
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                     <p className="text-sm text-gray-600 mb-2">Demo Accounts:</p>
                     <p className="text-xs text-gray-500">
-                        • Admin: admin@example.com / password
+                        • Admin: hr.senior.ta01@local.test / 19900101
                     </p>
                     <p className="text-xs text-gray-500">
-                        • Employee: employee@example.com / password
+                        • Employee: eng.01@local.test / 19970101
                     </p>
                 </div>
             </div>
