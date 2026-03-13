@@ -211,7 +211,11 @@ function Employees() {
                     <Button variant="secondary" onClick={() => handleEdit(row)}>
                         Edit
                     </Button>
-                    <Button variant="danger" onClick={() => handleDelete(row)}>
+                    <Button
+                        variant="danger"
+                        disabled={true}
+                        onClick={() => handleDelete(row)}
+                    >
                         Delete
                     </Button>
                 </div>
